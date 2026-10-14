@@ -1,0 +1,29 @@
+# O contexto de build nao precisa de nada disso. Sem este arquivo, o Docker
+# envia a pasta inteira (incluindo .prior de centenas de MB e os CSV de
+# sampling) ao daemon a cada build, o que deixa tudo lento.
+
+priors/
+models/
+results/
+data/
+padel/
+tb_*/
+*.log
+*.chkpt
+*.chkpt.*
+*.prior
+*.model
+
+BraCoLi_v1/
+
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+.git/
+.gitignore
+.vscode/
+.idea/
+
+*.json
+!docker/*.json

@@ -1,0 +1,55 @@
+# ===========================================================================
+# O que NAO vai para o repositorio.
+#
+# Regra geral: codigo e configuracao entram; dados de terceiros, modelos
+# treinados e saidas de execucao ficam de fora. Qualquer pessoa com este
+# repositorio reproduz os resultados rodando o pipeline.
+# ===========================================================================
+
+# --- Priors do REINVENT -----------------------------------------------
+# 510 MB no total, arquivos individuais de ate 91 MB. O GitHub recusa
+# arquivos acima de 100 MB e avisa acima de 50 MB. Sao baixados do Zenodo
+# e do historico do repositorio do REINVENT (instrucoes no README).
+priors/
+*.prior
+
+# --- Dados de terceiros -----------------------------------------------
+# O BraCoLi e publico, mas e de outro grupo. Melhor referenciar a fonte
+# do que redistribuir uma copia que pode ficar desatualizada.
+BraCoLi_v1/
+
+# Modelos e conjuntos cedidos pela autora da dissertacao: material de
+# terceiro, nao publicado. NUNCA versionar.
+padel/
+*.pkl
+
+# --- Saidas de execucao -----------------------------------------------
+# Tudo aqui e regeneravel rodando o pipeline.
+data/
+models/
+results/
+tb_*/
+*.chkpt
+*.chkpt.*
+*.model
+
+# Logs e configuracoes efetivas geradas pelo REINVENT a cada execucao
+*.log
+tl_bracoli.json
+sampling_agent.json
+sampling_baseline.json
+
+# --- Python -----------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# --- Editor / SO ------------------------------------------------------
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store

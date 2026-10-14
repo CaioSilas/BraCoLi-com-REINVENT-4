@@ -1,0 +1,68 @@
+####################################################################
+# REINVENT 4 - Transfer Learning
+# Prior Reinvent (de novo, RNN/ChEMBL)  ->  agente focado em BraCoLi
+#
+# Executar (a partir da pasta Artigo/):
+#   docker compose run --rm reinvent reinvent -l tl_bracoli.log tl_bracoli.toml
+#
+# Monitorar:
+#   docker compose --profile monitor up -d tensorboard
+#   -> http://localhost:6006
+#
+# O QUE OLHAR NO TENSORBOARD:
+#   A curva de validacao e o criterio de parada. Com ~1.000 moleculas o
+#   overfitting aparece cedo: quando a loss de validacao parar de cair e
+#   comecar a subir, o checkpoint util e o da epoca IMEDIATAMENTE ANTERIOR,
+#   nao o da ultima epoca.
+#
+#   Com randomize_all_smiles ativo o minimo fica mais raso e menos obvio
+#   (comentario dos proprios autores em runmodes/TL/reinvent.py). Nao espere
+#   um "V" nitido; procure o ponto em que a curva para de descer.
+####################################################################
+
+run_type = "transfer_learning"
+
+# "cpu" casa com a imagem padrao do docker-compose.yml.
+# Para GPU, troque para "cuda:0" E use docker-compose.gpu.yml.
+device = "cpu"
+
+tb_logdir = "tb_tl_bracoli"
+json_out_config = "tl_bracoli.json"   # registro da config efetiva, para o artigo
+
+
+[parameters]
+
+# ---- Modelos -----------------------------------------------------
+# ".reinvent" usa o registro interno de priors, que resolve via a variavel
+# REINVENT_PRIOR_BASE (definida como /work/priors no contentor).
+# Equivale a "priors/reinvent.prior", mas sem depender do caminho.
+input_model_file = ".reinvent"
+
+output_model_file = "models/bracoli_agent.chkpt"
+
+# ---- Dados -------------------------------------------------------
+smiles_file = "data/bracoli_train.smi"
+validation_smiles_file = "data/bracoli_valid.smi"
+
+# ---- Treinamento -------------------------------------------------
+num_epochs = 100          # com dataset pequeno, raramente passa de ~10-15 util
+save_every_n_epochs = 1  # 1 e proposital: queremos granularidade para a parada
+batch_size = 64          # reduzido por causa do tamanho do conjunto
+sample_batch_size = 128  # amostras geradas por epoca para as metricas do TB
+
+# num_refs: moleculas de referencia para o calculo de similaridade no
+# TensorBoard. A configuracao oficial do REINVENT avisa para zerar em
+# conjuntos com mais de 200 moleculas - o BraCoLi tem ~1.176, e deixar
+# o padrao (100) torna cada epoca desnecessariamente lenta.
+num_refs = 0
+
+tb_isim = false
+
+# Data augmentation: gera representacoes SMILES alternativas da mesma
+# molecula a cada acesso do DataLoader. Com ~1.000 compostos e o que mais
+# reduz o overfitting - o modelo nao decora a string porque a string muda.
+randomize_all_smiles = true
+
+# O prior Reinvent nao modela estereoquimica; manter false e coerente com
+# a curadoria feita em prep_bracoli.py.
+isomeric_smiles = false

@@ -1,0 +1,33 @@
+####################################################################
+# REINVENT 4 - Sampling do agente pos-Transfer Learning
+#
+# Rode DEPOIS de escolher o checkpoint pela curva de validacao.
+# Aponte `model_file` para o checkpoint escolhido, nao necessariamente
+# para o arquivo final - a ultima epoca costuma estar sobreajustada.
+#
+# Os checkpoints saem como:
+#   models/bracoli_agent.chkpt.1.chkpt
+#   models/bracoli_agent.chkpt.2.chkpt
+#   ...
+#
+# Executar:
+#   docker compose run --rm reinvent \
+#       reinvent -l sampling_agent.log sampling_agent.toml
+####################################################################
+
+run_type = "sampling"
+device = "cpu"                        # "cuda:0" com docker-compose.gpu.yml
+json_out_config = "sampling_agent.json"
+
+
+[parameters]
+
+# TROQUE para a epoca escolhida, ex.: "models/bracoli_agent.chkpt.8.chkpt"
+model_file = "models/bracoli_agent.chkpt.85.chkpt"
+
+output_file = "results/sampled_agent.csv"
+
+num_smiles = 10000                    # mesmo N do baseline
+
+unique_molecules = false
+randomize_smiles = false

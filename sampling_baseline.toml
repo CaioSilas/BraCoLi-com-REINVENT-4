@@ -1,0 +1,34 @@
+####################################################################
+# REINVENT 4 - Sampling do PRIOR puro (controle negativo)
+#
+# RODE ESTE ANTES DO TL.
+#
+# Sem este baseline nao ha como demonstrar, no artigo, que o transfer
+# learning deslocou o espaco quimico: toda a sua analise comparativa
+# (PCA, scaffolds, Tanimoto) precisa de um grupo controle gerado pelo
+# mesmo gerador, no mesmo numero de amostras, sem exposicao ao BraCoLi.
+#
+# Executar:
+#   docker compose run --rm reinvent \
+#       reinvent -l sampling_baseline.log sampling_baseline.toml
+####################################################################
+
+run_type = "sampling"
+device = "cpu"                        # "cuda:0" com docker-compose.gpu.yml
+json_out_config = "sampling_baseline.json"
+
+
+[parameters]
+
+model_file = ".reinvent"              # prior puro, via REINVENT_PRIOR_BASE
+output_file = "results/sampled_prior.csv"
+
+num_smiles = 10000                    # mesmo N do agente pos-TL
+
+# false: mantem duplicatas no CSV. A taxa de duplicacao e, por si so,
+# uma metrica reportavel (diversidade do gerador) e e perdida se o
+# REINVENT deduplicar antes de voce contar.
+unique_molecules = false
+
+# false: queremos o SMILES canonico na saida, para comparacao direta.
+randomize_smiles = false

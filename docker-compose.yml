@@ -1,0 +1,77 @@
+# ===========================================================================
+# Pipeline: expansao do espaco quimico do BraCoLi via transfer learning
+#
+# Dois servicos de trabalho (ambientes isolados, mesmo volume) e um de
+# monitoramento:
+#
+#   reinvent     -> transfer learning e sampling  (REINVENT 4.8)
+#   tools        -> curadoria, filtragem, predicao (RDKit / PaDEL / sklearn)
+#   tensorboard  -> curva de validacao do TL em http://localhost:6006
+#
+# A pasta do projeto inteira e montada em /work nos dois contentores, de modo
+# que os caminhos relativos dos arquivos .toml funcionem sem alteracao.
+#
+# CPU por padrao. Para GPU NVIDIA, veja docker-compose.gpu.yml.
+# ===========================================================================
+
+services:
+
+  # -------------------------------------------------------------------
+  # Transfer learning e sampling
+  # -------------------------------------------------------------------
+  reinvent:
+    build:
+      context: .
+      dockerfile: docker/reinvent.Dockerfile
+      args:
+        REINVENT_REF: "v4.8"
+        TORCH_TARGET: "cpu"
+        REINVENT_EXTRAS: "none"
+    image: bracoli/reinvent:4.8-cpu
+    working_dir: /work
+    volumes:
+      - .:/work
+    environment:
+      REINVENT_PRIOR_BASE: /work/priors
+    # Sem command: use `docker compose run --rm reinvent <comando>`.
+    # O stdin_open/tty mantem utilizavel um `run reinvent bash`.
+    stdin_open: true
+    tty: true
+
+  # -------------------------------------------------------------------
+  # Pos-processamento
+  # -------------------------------------------------------------------
+  tools:
+    build:
+      context: .
+      dockerfile: docker/tools.Dockerfile
+      args:
+        # Ajuste para a versao usada no treino dos modelos .pkl
+        SKLEARN_VERSION: "1.3.2"
+        PYTHON_VERSION: "3.11"
+    image: bracoli/tools:latest
+    working_dir: /work
+    volumes:
+      - .:/work
+    stdin_open: true
+    tty: true
+
+  # -------------------------------------------------------------------
+  # TensorBoard: e por esta curva que voce escolhe o checkpoint do TL
+  # -------------------------------------------------------------------
+  tensorboard:
+    image: bracoli/reinvent:4.8-cpu
+    depends_on:
+      - reinvent
+    working_dir: /work
+    volumes:
+      - .:/work
+    ports:
+      - "6006:6006"
+    command: >
+      tensorboard
+      --logdir /work/tb_tl_bracoli
+      --host 0.0.0.0
+      --port 6006
+    profiles:
+      - monitor

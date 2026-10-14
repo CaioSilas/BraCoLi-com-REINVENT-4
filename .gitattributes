@@ -1,0 +1,23 @@
+# Normaliza quebras de linha. Voce trabalha no Windows (CRLF) e os
+# contentores rodam Linux (LF); sem isso o git marca arquivos inteiros
+# como modificados sem que nada tenha mudado de fato.
+* text=auto eol=lf
+
+# Dockerfiles e scripts precisam de LF para funcionar dentro do contentor.
+*.Dockerfile text eol=lf
+*.sh         text eol=lf
+*.py         text eol=lf
+*.toml       text eol=lf
+*.yml        text eol=lf
+
+# Arquivos de Windows mantem CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binarios: nunca converter.
+*.prior binary
+*.pkl   binary
+*.sdf   binary
+*.mol2  binary
+*.xlsx  binary
+*.pdf   binary

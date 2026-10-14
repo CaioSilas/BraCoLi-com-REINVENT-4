@@ -1,0 +1,35 @@
+# ===========================================================================
+# Sobreposicao para GPU NVIDIA.
+#
+# Uso:
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml build reinvent
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml \
+#       run --rm reinvent reinvent -l tl.log tl_bracoli.toml
+#
+# Requisitos no host:
+#   - driver NVIDIA compativel com o CUDA escolhido
+#   - NVIDIA Container Toolkit
+#   - no Windows: WSL2 com suporte a GPU no Docker Desktop
+#
+# Confirme a versao do CUDA em https://pytorch.org/get-started/locally/
+# e mantenha `device` = "cuda:0" nos seus arquivos .toml.
+# Em CPU, lembre de trocar para device = "cpu".
+# ===========================================================================
+
+services:
+
+  reinvent:
+    build:
+      args:
+        TORCH_TARGET: "cu126"
+    image: bracoli/reinvent:4.8-cu126
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  tensorboard:
+    image: bracoli/reinvent:4.8-cu126
