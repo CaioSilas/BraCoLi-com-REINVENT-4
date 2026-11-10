@@ -39,6 +39,7 @@ domínio de aplicabilidade declarado, é parte do resultado.
 | 5 | Filtragem em cascata | `filter_generated.py` | `results/filtered/*_funnel.csv` |
 | 6 | Domínio de aplicabilidade | `predict_activity.py` | diagnóstico por molécula |
 | 7 | Predição de atividade | `predict_activity.py` | consenso dos três modelos |
+| 8 | **Replicatas e comparação** | `run_replicates.sh`, `compare_replicates.py` | `results/replicates/` |
 
 A etapa 2 não é opcional. Toda alegação de "expansão do espaço químico" é uma
 comparação, e sem um conjunto gerado pelo mesmo gerador, no mesmo N, sem
@@ -59,6 +60,39 @@ A sintetizabilidade vem antes da atividade de propósito: filtra-se o que não
 se consegue fazer antes de gastar tempo predizendo o que seria bom se
 existisse.
 
+### Replicatas e teste de hipótese (etapa 8)
+
+Uma única amostragem de cada modelo não sustenta a comparação: não se sabe
+quanto da diferença entre os dois funis é o *transfer learning* e quanto é
+ruído da amostragem multinomial. A etapa 8 repete a amostragem **N = 10 vezes
+por modelo**, com sementes 1 a 10, e trata cada replicata como uma observação.
+
+**O que varia.** Apenas a semente de amostragem. O *checkpoint* do agente e o
+arquivo do prior são fixos, logo a variância medida é a de **amostragem do
+gerador**, não a de treino. Medir a variância de treino exigiria refazer o TL
+por replicata com um critério automático de parada — é outro experimento, e
+está declarado como tal.
+
+**Unidade experimental: a replicata, não a molécula.** Uma métrica por
+replicata, dez por grupo. Comparar as 10.000 moléculas de uma execução contra
+as 10.000 de outra seria pseudo-replicação: moléculas de uma mesma amostragem
+não são observações independentes do modelo, e o p-valor resultante não teria
+significado.
+
+**Teste.** Mann-Whitney bilateral para amostras independentes — os grupos não
+são pareados, já que a semente *r* não cria correspondência entre modelos
+distintos —, com correção de Holm-Bonferroni sobre a família de métricas.
+Tamanho de efeito pelo delta de Cliff. Com n = 10 contra n = 10 o menor p
+bilateral alcançável é 1,08 × 10⁻⁵: métricas que saturam esse piso indicam
+separação completa entre os grupos, e nesses casos o p não mede a força do
+efeito.
+
+**Em que etapa do funil os descritores são medidos.** Sobre o conjunto único e
+válido (etapa 2), antes dos filtros de novidade, SA score e *drug-likeness*.
+Medir depois deles compararia conjuntos selecionados por critérios que atingem
+os dois modelos de forma desigual, e a diferença observada seria efeito do
+filtro, não do *transfer learning*.
+
 ---
 
 ## Status
@@ -66,12 +100,12 @@ existisse.
 | Etapa | Situação |
 |---|---|
 | 1. Curadoria | **Concluída** — 982 moléculas de 1176 |
-| 2. Baseline | Pendente |
-| 3. Transfer learning | Pendente |
-| 4. Amostragem do agente | Pendente |
-| 5. Filtragem | Implementada, aguarda 2 e 4 |
+| 2. Baseline | **Concluída** |
+| 3. Transfer learning | **Concluída** — 100 épocas; checkpoint 85 escolhido pela curva de validação |
+| 4. Amostragem do agente | **Concluída** |
+| 5. Filtragem | **Concluída** |
 | 6-7. Domínio e atividade | Implementadas, **bloqueadas** por material de terceiros |
-| Análise comparativa | A implementar |
+| 8. Replicatas e comparação | **Concluída** — 10 replicatas por modelo |
 
 **Resultado da curadoria (etapa 1):**
 
@@ -163,6 +197,30 @@ docker compose run --rm tools python filter_generated.py results/sampled_agent.c
 
 ```
 docker compose run --rm tools python filter_generated.py results/sampled_prior.csv --reference data/bracoli_clean.smi --label prior --outdir results/filtered
+```
+
+### Replicatas (etapa 8)
+
+O orquestrador amostra e filtra os dois modelos dez vezes, com sementes 1 a 10,
+guardando os dados de cada replicata em sua própria pasta. Roda no **Git Bash**
+(não no `cmd`), a partir de `Artigo/`:
+
+```
+bash run_replicates.sh
+```
+
+É retomável: replicatas já concluídas são puladas, então uma interrupção não
+custa o que já rodou. Para refazer uma, apague a pasta `results/replicates/rNN`
+correspondente. Parâmetros por variável de ambiente:
+
+```
+NREP=10 NSMILES=10000 AGENT_CKPT=models/bracoli_agent.chkpt.85.chkpt bash run_replicates.sh
+```
+
+A análise comparativa — tabelas, testes de hipótese e figuras:
+
+```
+docker compose run --rm tools python compare_replicates.py
 ```
 
 ---
