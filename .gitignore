@@ -1,9 +1,8 @@
 # ===========================================================================
 # O que NAO vai para o repositorio.
 #
-# Regra geral: codigo e configuracao entram; dados de terceiros, modelos
-# treinados e saidas de execucao ficam de fora. Qualquer pessoa com este
-# repositorio reproduz os resultados rodando o pipeline.
+# Regra geral: codigo, configuracao e RESULTADOS SINTETIZADOS entram; dados
+# de terceiros, modelos treinados e dados brutos regeneraveis ficam de fora.
 # ===========================================================================
 
 # --- Priors do REINVENT -----------------------------------------------
@@ -24,15 +23,10 @@ padel/
 *.pkl
 
 # --- Saidas de execucao -----------------------------------------------
-# Tudo aqui e regeneravel rodando o pipeline.
-#
-# EXCECAO: results/ E versionado. Os dados que sustentam as tabelas e
-# figuras do artigo ficam disponiveis sem exigir que o revisor rode o
-# pipeline inteiro. Sao moleculas GERADAS e escores de similaridade -
-# nenhuma estrutura do BraCoLi e redistribuida, entao a regra de nao
-# versionar material de terceiros continua valendo.
+# Regeneraveis rodando o pipeline. Pesadas demais para o git.
 data/
 models/
+results/
 tb_*/
 *.chkpt
 *.chkpt.*
@@ -44,12 +38,25 @@ tl_bracoli.json
 sampling_agent.json
 sampling_baseline.json
 
-# Dentro de results/ eles ficam: o .json registra a semente efetiva de
-# cada replicata, e sem ele nao se sabe qual semente produziu qual
-# arquivo. As regras acima continuam valendo na raiz, onde esses arquivos
-# sao apenas a ultima execucao avulsa.
-!results/**/*.log
-!results/**/*.json
+# ===========================================================================
+# EXCECAO: a pasta analise/ VAI para o repositorio.
+#
+# E onde ficam os resultados que alguem precisa ver sem rodar nada:
+#   analise/RELATORIO.md
+#   analise/metricas_por_replicata.csv      (20 linhas)
+#   analise/comparacao_prior_vs_agente.csv  (23 linhas)
+#   analise/funil_medio.csv                 (7 linhas)
+#   analise/figuras/*.png  *.pdf
+#
+# Copie esses arquivos para analise/ antes de commitar. Sao poucos
+# kilobytes de tabela e algumas centenas de KB de figura.
+#
+# O que NAO entra: os dados brutos por replicata (analise/r01/, r02/...),
+# que sao os SMILES e descritores de 200 mil moleculas. Regeneraveis.
+# ===========================================================================
+analise/r[0-9]*/
+analise/**/sampled_*.csv
+analise/**/descritores*.csv
 
 # --- Python -----------------------------------------------------------
 __pycache__/
