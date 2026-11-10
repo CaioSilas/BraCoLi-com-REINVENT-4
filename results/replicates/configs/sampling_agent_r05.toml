@@ -1,0 +1,12 @@
+# Gerado por run_replicates.sh - replicata r05, modelo agent
+run_type = "sampling"
+device = "cpu"
+seed = 5
+json_out_config = "results/replicates/r05/sampling_agent.json"
+
+[parameters]
+model_file = "models/bracoli_agent.chkpt.85.chkpt"
+output_file = "results/replicates/r05/sampled_agent.csv"
+num_smiles = 10000
+unique_molecules = false
+randomize_smiles = false

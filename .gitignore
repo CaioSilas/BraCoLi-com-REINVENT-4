@@ -25,9 +25,14 @@ padel/
 
 # --- Saidas de execucao -----------------------------------------------
 # Tudo aqui e regeneravel rodando o pipeline.
+#
+# EXCECAO: results/ E versionado. Os dados que sustentam as tabelas e
+# figuras do artigo ficam disponiveis sem exigir que o revisor rode o
+# pipeline inteiro. Sao moleculas GERADAS e escores de similaridade -
+# nenhuma estrutura do BraCoLi e redistribuida, entao a regra de nao
+# versionar material de terceiros continua valendo.
 data/
 models/
-results/
 tb_*/
 *.chkpt
 *.chkpt.*
@@ -38,6 +43,13 @@ tb_*/
 tl_bracoli.json
 sampling_agent.json
 sampling_baseline.json
+
+# Dentro de results/ eles ficam: o .json registra a semente efetiva de
+# cada replicata, e sem ele nao se sabe qual semente produziu qual
+# arquivo. As regras acima continuam valendo na raiz, onde esses arquivos
+# sao apenas a ultima execucao avulsa.
+!results/**/*.log
+!results/**/*.json
 
 # --- Python -----------------------------------------------------------
 __pycache__/

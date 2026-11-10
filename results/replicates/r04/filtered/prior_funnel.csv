@@ -1,0 +1,8 @@
+Etapa,N,% da amostragem
+Amostradas,10000,100.0
+Validas apos padronizacao,9841,98.41
+Unicas,9840,98.4
+Nao presentes no BraCoLi,9839,98.39
+Novas (Tanimoto <= 0.6),9821,98.21
+Sintetizaveis (SA <= 4.5),9426,94.26
+"Drug-like (TPSA <= 140.0, Lipinski)",8524,85.24

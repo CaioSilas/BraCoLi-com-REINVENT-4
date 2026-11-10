@@ -1,0 +1,192 @@
+18:31:59 <INFO> Started REINVENT 4.8.24 (C) AstraZeneca 2017, 2023 on 2026-11-10
+18:31:59 <INFO> Command line: /usr/local/bin/reinvent -l results/replicates/r06/sampling_prior.log -s 6 results/replicates/configs/sampling_prior_r06.toml
+18:31:59 <INFO> Reading run configuration from /work/results/replicates/configs/sampling_prior_r06.toml using format toml
+18:31:59 <INFO> User root on host 3f6e1c1053b6
+18:31:59 <INFO> Python version 3.12.16
+18:31:59 <INFO> PyTorch version 2.12.0+cpu git 7661cd9c6b841b62b7f411aa52ec51f05457263b
+18:31:59 <INFO> PyTorch compiled with None
+18:31:59 <INFO> RDKit version 2026.09.1
+18:31:59 <INFO> Platform Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.36
+18:31:59 <INFO> Using CPU 
+18:31:59 <INFO> Set seed for all random generators to 6
+18:31:59 <INFO> Writing JSON config file to /work/results/replicates/r06/sampling_prior.json
+18:31:59 <INFO> Starting Sampling
+18:31:59 <ERRO> /work/priors/reinvent.prior has invalid hash:
+{ 'comments': [],
+  'creation_date': 0,
+  'date_format': 'UNIX epoch',
+  'hash_id': '173568c36e1fc3d95cab289c7d31ce0b',
+  'hash_id_format': 'xxhash.xxh3_128_hex 3.4.1',
+  'model_id': '55d68f8a81c04f5a86304ebe1723a0ea',
+  'model_id_format': 'uuid.uuid4 3.10.12',
+  'origina_data_source': 'ChEMBL 25',
+  'updates': []}
+18:31:59 <INFO> Number of network parameters: 5,805,602
+18:31:59 <INFO> Network architecture:
+RNN(
+  (_embedding): Embedding(34, 256)
+  (_rnn): LSTM(256, 512, num_layers=3, batch_first=True)
+  (_linear): Linear(in_features=512, out_features=34, bias=True)
+)
+18:31:59 <INFO> Using generator Reinvent
+18:31:59 <INFO> Writing sampled SMILES to CSV file results/replicates/r06/sampled_prior.csv
+18:31:59 <INFO> Sampling 10000 SMILES from model .reinvent
+18:32:21 <INFO> Sampled SMILES c1(CC=C(C)C)c2c(c(O)cc1O)C(=O)C1=CC3C(=O)C4(CC=C(C)C)C1(O)C(C(=O)c1c5c(c(O)ccc5Cc5ccccc5)C1CC4C3=O)O2 failed to sanitize.
+18:32:21 <INFO> Sampled SMILES C(#N)c1nc(-c2cc(OC)c(OC)c(OC)c2)c(-c2c3cccc(=NC(C)=O)c3n3c2CCC3)[nH]1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES C12C3C(CCC1(C)C(OC(C)=O)(C(C)C1=C(C)CC(C(C)=C)OO1)(C)C2=O)C1(C)CCC(O)CC1(O)C(=O)C3 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1cccc2n(-c3ccc(F)cc3)c(=O)c3cnn(C4OC(CO)C(O)C4(O)C)c3n12 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1c(-n2c(CC)c(C(Cn3nnnc3)=O)cc3ccccc23)cccc1OC failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c12c(c3c(c4c(cccc4)[nH]c3=NCCN(CCO)CCO)c3cccc4c3c1c(=O)c4)CCCC=2 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1c(=Cc2cccc[n+]2C)nc2sc(=Cc3ccc(Cl)cc3)c(=O)n12 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES C(C)(C)(NCC(COc1cc2c(cc1)N(S(c1ccc(C(C)C)cc1)(=O)=O)CCO2)O)=O failed to sanitize.
+18:32:22 <INFO> Sampled SMILES O(c1c(O)cc(CC2(CC)CC2C(Cl)(Cl)Cl)on1)C failed to sanitize.
+18:32:22 <INFO> Sampled SMILES o1c2c(nc(=Nc3ccccc3)[nH]1)c(-c1ccccc1)c(-c1ccccc1)[nH]2 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES N(Cc1cccnc1)=c1c2n(c(-c3ccc(C(F)(F)F)cc3)cn1)c(CC)c[nH]2 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES n1c(=COc2ccc(-c3ccc(C#N)cc3)cc2)c(=O)c2ccccc2c1=CCCCCCCC failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1cccc2c1C1=C3CC(C)(C)CC(=O)C3=C(C(C)C)O1CO2 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1cc2cccc3ccc4c5c(cccc5)c1c2c43 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES O=C1C(OC(=O)c2c(=O)oc3c(OC)cccc3c2)CC(C#N)C=1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1ccc2c([nH]c3c(c(C)c(C(CNCCO)=O)cn3)c2OCCCF)c1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1cccc2c1c(O)c(=O)c1c(cc3c(c1O)c(O)c(NC(O)CN1CCC1)c3O)c2O failed to sanitize.
+18:32:22 <INFO> Sampled SMILES O=C(OC)Cc1cc2n(C)c(=O)c3c(n12)cc(C(O)=O)cc3 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES C(N1C2Cc3c4c(c(O)cc3)OC3c5[nH]c6c(c5CC24CC1)cc(C(F)(F)F)cc6)ccc3 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c12c(-c3ccc4c(c3)OCO4)c3c4c(cc5c(c4c1ccc1c2OCCO1)=CC(=O)CO5)cccc3 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1ccc(-n2n3c(-c4ccc(OC)cc4)cc4c(=O)n(-c5cc(OC)ccc5)cnc4c3cn2)cc1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c12c(c(O)n3c(c1O)C(C)(C)C1C(C3)C3OC21C(=O)OC3c1occc1)C failed to sanitize.
+18:32:22 <INFO> Sampled SMILES [nH]1nc(C)c(CCC(Nc2ccc(F)c(F)c2)=O)c(=O)c1OC failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c12cccnc1C(=O)c1n3c(cc1=C2OCC)C(=O)C(=O)C(Br)=C3 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES Cc1[nH]c(-c2cc(Cl)cc(C(Nc3ccc(C(F)(F)F)cc3)=O)c2)cc(=Nc2ccc3c(c2)cnn3C)[nH]1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1cc(=NCCCN2C(COc3ccccc3OCCOc3c(-c4ccccc4)cccc3)c3cc(F)ccc3S2(=O)=O)c2c([nH]c1)cc(Cl)cc2 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1cc2c3n(c(O)c(NCCO)c2cc1)cn3 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c12cccc3c1c1c(cccc1)nc3c1[nH]c3ccc4c(c3c1c2)[nH]ccc4 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1c(C)c(NC(C2CCC2)=O)c(=NC2CCOCC2)cc(-n2ncc3cc(C#N)cnc23)[nH]1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES C(CC)N(CCC)CN1c2c3nc(-c4ccccc4)nc3ccc2OC(C)(C)C1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES n1c2c3n(cc(C=CC(N4N=CCC4=O)=O)c(=O)c3cc(F)c2N2CCN(C)CC2)s1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c12c(C3C(O)C(O)C(O)CO3)cc(C(=CC)c3ccc(O)cc3)c1OC(C)(C)C1CCC(=O)CC21 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1cccc2c(N=Nc3cc(S(=O)(=O)O)c(NCCC)cc3N)c(O)cc(S(=O)(=O)O)c2c1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1[nH]c2ncnc(N3CCN(C(C(Cc4ccc(Cl)cc4)CC(CCN)=O)C)cc3=O)c2c1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1n(CC2OC(OCC3C(O)C(O)C(O)C(Oc4c(O)c(O)c(C(=O)c5ccccc5)c(O)cc4)C3O)C(O)C2OCC=C)ccc1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1cccc2c(=O)n(CC(c3ccc(C)cc3)=O)c3ccccc3n12 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1c2c(c(OC)c3c1cc1c4c(n(CCN(CC)CC)n1)cc(OC)cc4nn3)n(CCN(C)C)cc(C(=O)OC)c2=O failed to sanitize.
+18:32:22 <INFO> Sampled SMILES n1n2c(cccc2)c2c(c1C(NCc1ccc(Cl)cc1)=O)CCN(Cc1ccccc1)C2 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1(O)cc(N2CCOCC2)c(N)c1N=C(C)C failed to sanitize.
+18:32:22 <INFO> Sampled SMILES n1c2c(c(C)c3c(=O)n4c(nc(C(=O)N5CCCCCC5)n4)nc3c2)ccc1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c12cc(Cl)ccc1oc(=NS(=O)(=O)c1ccc(Cc3ccncc3)cc1)c2 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1c(O)ccc(-c2cc(=O)c3c(cc4c(oc(C)cc(=O)c4-c4ccc(N)cc4)c3)o2)c1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c12c3cccc1=C(n1cc(-c4cc(OC)ccc4)nn1)C(=O)N=2CO3 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1c2c(c3c(cc(OC)c(O)c3)n2)c(O)cc1OC failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c12cc(=CN3CCOCC3)ccc1=NC(=S)N=2 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c12c(sc3n4c([nH]c13)cccc4)c(C#N)c(-c1ccccc1)cc2=O failed to sanitize.
+18:32:22 <INFO> Sampled SMILES C1(CCNc2c(C#N)c(=O)c(=O)c2NC(c2ccccc2)C)CC1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES C1C(=O)C(O)C(Oc2c3c(c(O)c4c2oc2c(c4c(O)c(CC=C(C)C)c(OCC(CNCCCC)O)c2O)C(C)(C)CC3)O)OC1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1(N2CCOCC2)cn2ncc3cc(Cl)cc(c32)n1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES N(C(c1noc(COc2cccc(OC)c2)c1)=O)=c1nc2c(c(Cl)cc(C)c2)oc1C failed to sanitize.
+18:32:22 <INFO> Sampled SMILES O=C(CC=c1c2c(c(=O)[nH]c1)cccc2)O failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1ccc(C2C3(C)C(=O)NCC(=O)N3C3c4c5c(ccc4)CCc3cc25)cc1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES n1c(C(F)(F)F)c(C(NCCC(C)N2CCC(N(Cc3ccc(F)cc3)C(CC)=O)CC2)=O)c2ccccc12 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1ccc2c([nH]c(=N)n3c4c(nc3c2C(=O)OCC)ccc([N+]([O-])=O)c1)ncc4 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1cccc2nc3c(oc12)ccc(NC(COc1c(OC)cccc1)=O)c3 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES C(N(C1C2(C)CCC3C(CCc4c3ccc(O)c4)C2CC1)(C)C)CCC(=O)N(C)CCCCCCCCCCNC(=O)c1cc(O)ccc1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c12ncccc1-c1c3c(nc(SC)n3)ccc1C2=O failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1c(-c2nc3c4c(c(NC(C)CCCN)cc3n2)cccc4)cc(C(=O)NC(C2CCCCC2)C(NCCCC)=O)cc1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES Fc1ccc2c(cc(C=CC(=O)N3c4cc(Oc5cc6c(cc5)C(=O)N(NC(C)=O)C6(C)C4=O)C(CN(C)C)C3)cc2)c1 failed to sanitize.
+18:32:22 <INFO> Sampled SMILES c1(C)c2c3c(c(C)c(OC(=O)c4ccncc4)c2C(C)CC1)occ(-c1ccccc1OC)c3=O failed to sanitize.
+18:32:23 <INFO> Sampled SMILES N(N=C(C(N(CC)CC)=O)c1c(O)[nH]c2c1cccc2)=S(=O)(=O)c1ccccc1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1(C(F)(F)F)c2c3n(c(=S)[nH]c3cc1)cc(C(=O)c1ccc(C)cc1)c2 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES C(C)C(n1c(=O)c2c3c(occ3c1C)c(-c1ccccc1)nn2)CC failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c12c(scc1)c1nc(-c3ccccc3)cc(C(F)(F)F)n1nc2 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES C(c1c([N+](=O)[O-])cccc1)=NNC(NC1C(=O)SC2C(OC(=O)C)C(OC(=O)C)C(COC(=O)C)C(OC(C)=O)O12)=O failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c12ccc(F)cc1sc(N=c1n(-c3[nH]c4ccccc4n3)[nH]c(=Nc3ccc(Cl)cc3)n1)[nH]c2=O failed to sanitize.
+18:32:23 <INFO> Sampled SMILES [nH]1cc(-c2cc3c(cc2)[nH]c(C=CC2CCOCC2)n3)nc(=NCC2CCOCC2)c1C(=O)NC failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1(C(NN2CC[N+](=N)(OC)CC2)=O)cc(-n2cnc3ccc(O)cc23)ccc1O failed to sanitize.
+18:32:23 <INFO> Sampled SMILES C1(C(N=c2[nH]c3n(c(=Nc4ccc(N5CC(C)CC(C)C5)cc4)c2)CCC3)=O)=CCCN(C)C1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1cc2c3c(nc4c(c3COC2=O)cccc4C2CCCCC2)[nH]1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES n1c2c(c3oc([N+](=O)[O-])c(C)c13)cccc2 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1c2nc3c(cc2c(=O)c2cc4ccccc4cc21)cc1ccccc1n3 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES O=c1c2c3c(ccc2)-c2ccccc2C(=O)c3cc1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1nc(-c2cc3c(c(Cl)cc(CN4CCC(C(C)(C(=O)NCC(F)(F)F)(C)C)OC4=O)c3)nc2)cnc1C failed to sanitize.
+18:32:23 <INFO> Sampled SMILES C1CC1n1cc(C(O)=O)c(=O)c2c(Nc3cc(Cl)ccc3)c(F)c(NC(=O)NCCO)c21 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES O(C(C)C)c1c2c(cc(C(=O)CC=c3[nH]nc4ncnc(-n5ccnc5)c43)c1)CN(C)C1=C2CCCC1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES O(C)c1cc(N=C2C(=O)c3c(noc3C)-n3c(nnc3C)=C2)c(OC)cc1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1cc2oc3c(N)c4c(=O)c5c(OC)cccc5oc4c3c2cc1OC failed to sanitize.
+18:32:23 <INFO> Sampled SMILES n1ccc2c3ccc(=O)n(C)c1c3c1c(c2)c2c(cc3c4c(cccc24)[nH]c3)CC1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1c(C(C)(C)C)ccc(-c2n3nc(-c4ccccc4Cl)n(-c4ccc(Cl)cc4)c(=O)c3sc2=S)c1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c12c3cc(-c4cc(Cl)c(O)c(Cl)c4)cc1n(CC(N1CC(C)CC1)=O)c(CC)nc2cn3 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c12ccccc1=NC(NCCN1CCOCC1)c1c-2ccc(C)c1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES C1(=O)Nc2c3ccc4c5c3c3c(CCN(CC)CC)cccc5n(c34)c(=C(C)C)c2O1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1cc(-n2c(=O)nc3n(CC4CCCO4)c4ccccc4c(C)c-3n2)ccc1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES CC1(C)CC(=O)c2c3c(c4c(C)ccc5n(CCCCl)nc5c42)c2c(ccc(F)c2)n13 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1c(F)ccc(N=c2nc3n(CC(NC(CN)C)=O)[nH]c(=Nc4c(Cl)ccc(CNC(=O)C(C)(F)C)c4Cl)[nH]c3cc2)c1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1n(CC)cc(NC(c2cccnc2)=O)cc1=O failed to sanitize.
+18:32:23 <INFO> Sampled SMILES C1CN(c2ccc(OC)cc2)CCN1CC1N=c2c3c(nc(=N)[nH]c3s[nH]2)=NC1c1ccccc1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1(=N)n2c([nH]c3c1Cc1c(OC)c(OC)c(OC)cc1C3)cn2 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1c(=NC(=O)COC(=O)c2ccc([N+]([O-])=O)o2)nccc[nH]1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES O=C1c2c(F)c3c(cc2-c2c(cc(C4CC(=O)C(C(=O)CCC)=CC4=O)c1)OCO2)OCO3 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1(=[N+]([O-])O)c(OC)cc(C=Cc2ccc3c(cccc3)n2)cc1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES [nH]1c2n(CC(Cl)c3ccccc3)nc3c(cnn3CC(=O)C(C)(C)C)c2ccc1=O failed to sanitize.
+18:32:23 <INFO> Sampled SMILES COCCn1nc2c3c(c(NCCN(CC)CC)ccc13)nc1ccc(OC)cc21 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1n2nc(C(F)(F)F)c3c2c(ccc3)-c2cc(F)c(Cl)cc21 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1c(-c2c(=O)n(C(C)C)c3c([nH]c(=NC(=O)NC(C)c4ccccc4)[nH]c3O)c2)cccc1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES C1=c2c(nn(-c3ccc(S(=O)(N)=O)cc3)c(=C(C)C)c2=O)=C(CCC(=O)O)C1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1c(Cl)ccc(-n2c(-c3c4c(cccc4)[nH]c3)cc(-c3c(-c4ccco4)n[nH]c3=O)n2)c1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1ccccc1-c1c(-c2ccccc2)nn2nc(CCN)cc(=O)c21 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c12n(c3c(c(C)n1)CC1(C)C3(C)CCC1C(=CCc1cc(-c3ccccc3)c(O)o1)C)CC(O)C(C)(C)O2 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c12ccc(=NNC(=O)N(CC)CC)c3c1c(c(=C)cc2)-c1ccccc1-3 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES C1C(C)(C)Cc2c3[nH]c4c(c(=O)c3cc(F)c3c(=O)n(CCO)c(=O)c3cc2)c1OCO4 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c12c(=CCCN3CCCC3)c3c(n1cc(C)[nH]2)CCCC3=O failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1cc(NC(=O)c2cccc3c2C(=O)c2c(cccc2)C3=O)cn(Cc2c(Cl)cccc2Cl)n1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1c(N2CCN(C(CSCCc3c[nH]cn3)=O)CC2)oc2c(n1)cccn2 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1(=O)cc2c3cc(O)ccc3n3c4cc(F)ccc4c(ccn1)c23 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES S(=O)(N=C1C=C(N(OCCCN2CCOCC2)S(c2ccc(C)cc2)(=O)=O)=C(SCCC)C(=O)C1[N+](C)(C)C)(CC(=O)C)=O failed to sanitize.
+18:32:23 <INFO> Sampled SMILES C1c2[nH]c(O)cc(=O)n2C(CCc2ccccc2)(C(O)=O)CC1=O failed to sanitize.
+18:32:23 <INFO> Sampled SMILES Fc1c(-c2nc(Cl)c(N3CCN(C)CC3)cn2)ccc(C#N)[nH]1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES N(Cc1ccccn1)C(c1c(C)[n+]([O-])c2c([n+]([O-])n2)cccc1)=O failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1c2c(=O)[nH]nc3c2c(cc1)n(C1OC(CO)C(O)C(O)C1O)c3-c1c2ccccc2nc2c1cccc2 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1c(C2(c3ccc(Cl)cc3)CC2)nn(C2c3c(ccc(C(=O)NOCC)c3)CC2)c(C)c1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1ncccc1-c1cc2c(cc1)-c1nc3c(cc1C(=O)O)ccc(=O)o32 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c12c3c(c(=N)[nH]n(CC(C)(C)C)c3ccc1)c1ccccc21 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES C(C)C1(CO)C2CCC(=C)C(CCC(COC3C(O)C(O)C(O)CO3)C)O2C(=O)O1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES [nH]1ccc2cnn(-c3[nH]cc(C(=O)NC4CCC(C(F)(F)F)CC4)c(=NC(C)C)c3)c2n1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES O(C1C(OCc2[nH]c3c(cc4c(=O)cc(-c5ccc(OC)cc5)nc4c3)c2)OC(CO)C(O)C1O)C1C(O)C(O)C(O)C(CO)O1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1cc2c(c(CNC(=O)c3cn4c(s3)c(C(=O)NC(C)C(=O)OC)cc(C)n4)c1C)OCO2 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES O=C(c1c(N=c2n(-c3ccccc3)n(C)c(=O)c2C#N)s[nH]c1=O)OCC failed to sanitize.
+18:32:23 <INFO> Sampled SMILES O=c1n2c(c3c(cc(OC)cc3)n1)nnc2-c1c(C)c(C)ccc1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES Oc1ccc2[nH]c3c(c2c1)c1c(c2c4ccc5c(c4oc32)C(C(=O)OC)=COC=5)C=NC1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1(F)ccc(N=c2c(C#N)c3[nH]c(C)c(-c4ccccc4)c(SC)c3[nH]n2)cc1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES n1c(SCc2c(C)c(OC(C)C)ccc2)[nH]c(-c2ccc(N(C)C)cc2)c(-c2ccc(OC)c(OC)c2)n1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES O(c1ccc(-c2c3cn(S(c4ccccc4Cl)(=O)=O)c(=N)[nH]3nc2)cc1)C failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c1c(-n2[nH]c(C(=O)NCc3c(N4CCC(N)CC4)cc(-c4ccccn4)cc3=NC(C)C)cc2=O)cccc1 failed to sanitize.
+18:32:23 <INFO> Sampled SMILES O=c1n(COCCN2C(=O)c3c(cccc3)C2=O)nc2ccccc2c1=O failed to sanitize.
+18:32:23 <INFO> Sampled SMILES c12c3c(c4nc5nc6cccc(C(OC(C)C)=O)c6nn5c4cc3ccc1)ns2 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES n1cc2c(=O)[nH]c3c(c[nH]n3)c2n1 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES c1(-c2ccc(C)cc2)cc(=C)c2c(c(O)c(OC)cc2O)c1 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES N=c1ccc2c(N)c(C(Nc3ccc(Oc4c5sc(C(NC6CC6)=O)cc5ncc4)c(F)c3)=O)sc2c1 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES Oc1c(=CC#N)c2c(cc1)C1(C)C(C(C)(C(=O)O)CCC1)CC2 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES C1N(c2ncnc3n4c5c(cccc5)sc2c34)CCN(c2ncccc2)C1 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES c12sc3n4c(nc(=S)[nH]c4=O)nc3c1ccc(F)c2 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES c1ccc(C2CN(S(=O)(N)=O)CC2)cc1-c1nc(N2CCOCC2)c2n(c3cc[nH]c3nc2)c1 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES c1(Cc2cc3c(c(OC)c2)OCO3)c2[n+](cc3c(OCCCn4nncc3)c(OC)cc4)c(C)cc(=O)c-2cc2c1cc(OC)c(OC)c2 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES c1ccc(OC)c(N2CCN(Cc3c4oc(=O)cc5cc6c(cccc6)n(c54)c3O)CC2)c1 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES n1cc(-c2n(C)ncc2-c2c3c(n[nH]2)c(CC)n(C)n3)ccc1Br failed to sanitize.
+18:32:24 <INFO> Sampled SMILES OC(=O)C12C(CC(C)(C)CC1)C1=CCC3C(C)(C1(C)CC2)CCC1C(C)(C)C(OC(CCCCCCC(C)(CNC(=O)C)(C)C)=O)CCC31C failed to sanitize.
+18:32:24 <INFO> Sampled SMILES c1cc(C2C3C(=CSc4cc(O)n(CC(c5ccccc5)C)C43)N=C2SC)c(OC)cc1 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES O=C(c1ccccc1)N=c1nnc(-c2cc(OC)cc(OC)c2)[nH]c1N1CCN(C)CC1 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES O1C(C)CN(Cc2c3oc4c5c(c(CCC)cc4oc3ccc2)cc(-c2csc(C3CC3)n2)c5)CC1C failed to sanitize.
+18:32:24 <INFO> Sampled SMILES c1cc2cccc3[nH]cc(c(=O)n1c1cc(C(=O)NC4c5ccccc5CCC4)ccc13)c2=O failed to sanitize.
+18:32:24 <INFO> Sampled SMILES Brc1c2c3c4c(ccc(Br)c4)n1C(=O)C2N(CC1COC2CC4C(C3C)CCN2c2ccccc21)CC4 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES N=c1c(=O)cc2oc3cc(N(CC)CC)ccc3c-2n1CCC failed to sanitize.
+18:32:24 <INFO> Sampled SMILES S(c1c(=O)c2c3c(ccc2)-c2c(cccc2)-c3n1)CC#N failed to sanitize.
+18:32:24 <INFO> Sampled SMILES c1c2n(nc(-c3ccncc3)c1)c(-c1ccccc1)c(CN)c(=S)s2 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES c1(CNC(NS(c2cc([N+]([O-])=O)c(Cl)cc2S)(=O)=O)(=O)=O)c(Br)cccc1 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES COc1c2c(c(OC)cc1)C1(O)C3C(C(O)C(COC)=C1)C(=O)N1CC(OCC)(C(OC)=O)C(=O)N13CC2 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES C1N(c2c3c(n(S(c4c(C)ccc(C)c4)(=O)=O)c(=N)n3)ccc2)CCN(C(Nc2ccccc2)=O)C1 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES n1(-c2c(OC)cccc2)c(O)c2c(c1O)C1C=CC2(CN(S(=O)(=O)c2ccc(C(F)(F)F)cc2)CC)=C1C(=O)OC failed to sanitize.
+18:32:24 <INFO> Sampled SMILES c12[nH]c3c4c(c5c([nH]c6c5cccc6)c3c1cc(C)cc2)=NCC(C(OC)=O)(C)C(C(OC)=O)C4C failed to sanitize.
+18:32:24 <INFO> Sampled SMILES S(CCC)(=NC(=O)C)(=O)=O failed to sanitize.
+18:32:24 <INFO> Sampled SMILES O=C(O)c1cn2c3cc(-n4cnc5ccccc54)c(F)cc3c(=O)c(C(NC)=O)c2c1C1CC1 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES O=C(N1CCCC1)Cn1cccc2c1c(C1CC1)nc(C)n2 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES OCC1=C=Cc2c3c1c1c(c(O)c2C(O)C(O)C(C)C1)CCC=C3 failed to sanitize.
+18:32:24 <INFO> Sampled SMILES Cn1n2c(c(=O)n(CC(=O)N(Cc3ccccc3)C)c1)ccc2=O failed to sanitize.
+18:32:24 <INFO> Sampled SMILES c1(Cl)c(-c2c3cn(-c4ccc(C(C)C)cc4)c(=O)cc3[nH]n2C2CCCC2)cccc1 failed to sanitize.
+18:32:24 <INFO> Peak main memory usage: 861.012 MiB
+18:32:24 <INFO> Finished REINVENT on 2026-11-10

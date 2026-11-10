@@ -223,6 +223,25 @@ A análise comparativa — tabelas, testes de hipótese e figuras:
 docker compose run --rm tools python compare_replicates.py
 ```
 
+### Dados disponíveis no repositório
+
+Ao contrário do resto das saídas de execução, `results/` **é versionado**: os
+dados que sustentam as tabelas e figuras ficam disponíveis sem exigir que o
+leitor rode o pipeline inteiro.
+
+| Caminho | Conteúdo |
+|---|---|
+| `results/replicates/RELATORIO.md` | desenho, funil médio e tabela completa de testes |
+| `results/replicates/comparacao_prior_vs_agente.csv` | médias, DP, CV, U, p bruto e corrigido, Welch, Cliff, Hedges |
+| `results/replicates/metricas_por_replicata.csv` | uma linha por replicata e modelo |
+| `results/replicates/funil_medio.csv` | funil médio em N absoluto e percentual |
+| `results/replicates/figuras/` | três figuras em PNG 300 dpi e PDF vetorial |
+| `results/replicates/rNN/` | dados brutos de cada replicata: SMILES gerados, log, config com a semente, funil, descritores e métricas |
+
+São moléculas **geradas** e escores de similaridade. Nenhuma estrutura do
+BraCoLi é redistribuída — a regra de não versionar material de terceiros
+continua valendo para `data/`, `models/`, `padel/` e os `.pkl`.
+
 ---
 
 ## Arquitetura dos contêineres
